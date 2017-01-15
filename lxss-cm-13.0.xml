@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+  <remote name="lxss" fetch="https://github.com/btongminh" revision="lxss-cm-13.0" />
+
   <remove-project name="CyanogenMod/android_build" />
-  <project name="btongminh/android_build" path="build" remote="github" revision="lxss-cm-13.0" />
+  <project path="build" name="android_build" groups="pdk" remote="lxss">
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+
   <remove-project name="CyanogenMod/android_art" />
-  <project name="btongminh/android_art" path="art" remote="github" revision="lxss-cm-13.0" />
+  <project path="art" name="android_art" groups="pdk" remote="lxss" />
+
   <remove-project name="platform/external/v8" />
-  <project name="btongminh/android_v8" path="external/v8" remote="github" revision="lxss-cm-13.0" />
+  <project path="external/v8" name="android_v8" groups="pdk" remote="lxss" />
+
   <remove-project name="platform/prebuilts/python/linux-x86/2.7.5" />
-  <project path="prebuilts/python/linux-x86/2.7.5" name="btongminh/android_prebuilts_python" remote="github" revision="lxss-cm-13.0" />
+  <project path="prebuilts/python/linux-x86/2.7.5" name="android_prebuilts_python" groups="linux,pdk,pdk-cw-fs,pdk-fs" clone-depth="1" remote="lxss" />
+
   <remove-project name="platform/prebuilts/misc" />
-  <project path="prebuilts/misc" name="btongminh/android_prebuilts_misc" remote="github" revision="lxss-cm-13.0" />
+  <project path="prebuilts/misc" name="android_prebuilts_misc" groups="pdk" clone-depth="1" remote="lxss" />
 </manifest>
